@@ -18,23 +18,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9693cb22-7aaf-4773-ae62-761b1f186c1b" name="Default Changelist" comment="New Push">
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Project4.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Project4.app.iml" afterDir="false" />
+    <list default="true" id="9693cb22-7aaf-4773-ae62-761b1f186c1b" name="Default Changelist" comment="Fixed sample code Koin error for sending notification of GeofenceTransitionsJobIntentService.kt">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/project4/locationreminders/geofence/GeofenceTransitionsJobIntentService.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/project4/locationreminders/geofence/GeofenceTransitionsJobIntentService.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_save_reminder.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_save_reminder.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_30]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -172,7 +165,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618481623692</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Fixed sample code Koin error for sending notification of GeofenceTransitionsJobIntentService.kt">
+      <created>1618529184785</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1618529184786</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -189,7 +189,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New Push" />
-    <option name="LAST_COMMIT_MESSAGE" value="New Push" />
+    <MESSAGE value="Fixed sample code Koin error for sending notification of GeofenceTransitionsJobIntentService.kt" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed sample code Koin error for sending notification of GeofenceTransitionsJobIntentService.kt" />
   </component>
   <component name="WindowStateProjectService">
     <state x="598" y="296" key="#Notifications" timestamp="1618481117335">
