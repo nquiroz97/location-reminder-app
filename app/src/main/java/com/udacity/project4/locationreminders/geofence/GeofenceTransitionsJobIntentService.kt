@@ -74,6 +74,7 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
 
         repository = get()
         //Get the local repository instance
+        //Reference: https://knowledge.udacity.com/questions/526144
         val remindersLocalRepository: ReminderDataSource by inject()
 //        Interaction to the repository has to be through a coroutine scope
         CoroutineScope(coroutineContext).launch(SupervisorJob()) {
