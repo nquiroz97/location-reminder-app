@@ -15,23 +15,45 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
-    <select />
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9693cb22-7aaf-4773-ae62-761b1f186c1b" name="Default Changelist" comment="Reference for koin injection error">
+    <list default="true" id="9693cb22-7aaf-4773-ae62-761b1f186c1b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/Project4.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/Project4.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/udacity/project4/authentication/AuthenticationActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/udacity/project4/authentication/AuthenticationActivity.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/udacity/project4/locationreminders/data/FakeDataSource.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/udacity/project4/locationreminders/data/FakeDataSource.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/udacity/project4/locationreminders/reminderslist/RemindersListViewModelTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/udacity/project4/locationreminders/reminderslist/RemindersListViewModelTest.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/com/udacity/project4/locationreminders/savereminder/SaveReminderViewModelTest.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/com/udacity/project4/locationreminders/savereminder/SaveReminderViewModelTest.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_30]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -78,7 +100,39 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Android App.app">
+    <configuration name="RemindersListViewModelTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project4.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.udacity.project4.locationreminders.reminderslist.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.udacity.project4.locationreminders.reminderslist" />
+      <option name="MAIN_CLASS_NAME" value="com.udacity.project4.locationreminders.reminderslist.RemindersListViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SaveReminderViewModelTest" type="AndroidJUnit" factoryName="Android JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Project4.app" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.udacity.project4.locationreminders.savereminder.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.udacity.project4.locationreminders.savereminder" />
+      <option name="MAIN_CLASS_NAME" value="com.udacity.project4.locationreminders.savereminder.SaveReminderViewModelTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
       <option name="TEST_OBJECT" value="class" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -143,6 +197,12 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Android JUnit.SaveReminderViewModelTest" />
+        <item itemvalue="Android JUnit.RemindersListViewModelTest" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -190,7 +250,21 @@
       <option name="project" value="LOCAL" />
       <updated>1618530447870</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Reference for koin injection error">
+      <created>1618530652291</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1618530652291</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Reference for koin injection error">
+      <created>1618530774643</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1618530774643</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,7 +272,24 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -221,30 +312,47 @@
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="184" y="88" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1440.815@0.25.1440.815" timestamp="1618481477700" />
-    <state width="1396" height="208" key="GridCell.Tab.0.bottom" timestamp="1618530462125">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1396" height="208" key="GridCell.Tab.0.bottom/0.25.1440.817@0.25.1440.817" timestamp="1618530462125" />
-    <state width="1396" height="208" key="GridCell.Tab.0.center" timestamp="1618530462125">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1396" height="208" key="GridCell.Tab.0.center/0.25.1440.817@0.25.1440.817" timestamp="1618530462125" />
-    <state width="1396" height="208" key="GridCell.Tab.0.left" timestamp="1618530462124">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1396" height="208" key="GridCell.Tab.0.left/0.25.1440.817@0.25.1440.817" timestamp="1618530462124" />
-    <state width="1396" height="208" key="GridCell.Tab.0.right" timestamp="1618530462125">
-      <screen x="0" y="25" width="1440" height="817" />
-    </state>
-    <state width="1396" height="208" key="GridCell.Tab.0.right/0.25.1440.817@0.25.1440.817" timestamp="1618530462125" />
-    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1618481024592">
+    <state width="1396" height="208" key="GridCell.Tab.0.bottom" timestamp="1618846265007">
       <screen x="0" y="25" width="1440" height="814" />
     </state>
+    <state width="1396" height="208" key="GridCell.Tab.0.bottom/0.25.1440.814@0.25.1440.814" timestamp="1618846265007" />
+    <state width="1396" height="208" key="GridCell.Tab.0.bottom/0.25.1440.815@0.25.1440.815" timestamp="1618531400641" />
+    <state width="1396" height="208" key="GridCell.Tab.0.bottom/0.25.1440.817@0.25.1440.817" timestamp="1618530462125" />
+    <state width="1396" height="208" key="GridCell.Tab.0.center" timestamp="1618846265006">
+      <screen x="0" y="25" width="1440" height="814" />
+    </state>
+    <state width="1396" height="208" key="GridCell.Tab.0.center/0.25.1440.814@0.25.1440.814" timestamp="1618846265006" />
+    <state width="1396" height="208" key="GridCell.Tab.0.center/0.25.1440.815@0.25.1440.815" timestamp="1618531400640" />
+    <state width="1396" height="208" key="GridCell.Tab.0.center/0.25.1440.817@0.25.1440.817" timestamp="1618530462125" />
+    <state width="1396" height="208" key="GridCell.Tab.0.left" timestamp="1618846265005">
+      <screen x="0" y="25" width="1440" height="814" />
+    </state>
+    <state width="1396" height="208" key="GridCell.Tab.0.left/0.25.1440.814@0.25.1440.814" timestamp="1618846265005" />
+    <state width="1396" height="208" key="GridCell.Tab.0.left/0.25.1440.815@0.25.1440.815" timestamp="1618531400639" />
+    <state width="1396" height="208" key="GridCell.Tab.0.left/0.25.1440.817@0.25.1440.817" timestamp="1618530462124" />
+    <state width="1396" height="208" key="GridCell.Tab.0.right" timestamp="1618846265006">
+      <screen x="0" y="25" width="1440" height="814" />
+    </state>
+    <state width="1396" height="208" key="GridCell.Tab.0.right/0.25.1440.814@0.25.1440.814" timestamp="1618846265006" />
+    <state width="1396" height="208" key="GridCell.Tab.0.right/0.25.1440.815@0.25.1440.815" timestamp="1618531400640" />
+    <state width="1396" height="208" key="GridCell.Tab.0.right/0.25.1440.817@0.25.1440.817" timestamp="1618530462125" />
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2" timestamp="1618531143660">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
     <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.25.1440.814@0.25.1440.814" timestamp="1618481024592" />
-    <state x="503" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618481584453">
+    <state x="320" y="166" key="Vcs.Push.Dialog.v2/0.25.1440.815@0.25.1440.815" timestamp="1618531143660" />
+    <state x="377" y="170" key="VcsDiffUtil.ChangesDialog" timestamp="1618531011196">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
+    <state x="377" y="170" key="VcsDiffUtil.ChangesDialog/0.25.1440.815@0.25.1440.815" timestamp="1618531011196" />
+    <state x="503" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618530683865">
       <screen x="0" y="25" width="1440" height="815" />
     </state>
     <state x="503" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.814@0.25.1440.814" timestamp="1618480223118" />
-    <state x="503" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.815@0.25.1440.815" timestamp="1618481584453" />
+    <state x="503" y="347" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.25.1440.815@0.25.1440.815" timestamp="1618530683865" />
+    <state x="346" y="224" key="git4idea.merge.GitMergeDialog" timestamp="1618531087835">
+      <screen x="0" y="25" width="1440" height="815" />
+    </state>
+    <state x="346" y="224" key="git4idea.merge.GitMergeDialog/0.25.1440.815@0.25.1440.815" timestamp="1618531087835" />
   </component>
 </project>

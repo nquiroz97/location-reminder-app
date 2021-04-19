@@ -42,7 +42,7 @@ class AuthenticationActivity : AppCompatActivity() {
         // Give users the option to sign in / register with their email or Google account. If users
         // choose to register with their email, they will need to create a password as well.
         val providers = arrayListOf(
-                AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build()
+            AuthUI.IdpConfig.EmailBuilder().build(), AuthUI.IdpConfig.GoogleBuilder().build()
         )
 
         //DONE: a bonus is to customize the sign in flow to look nice using :
@@ -52,18 +52,19 @@ class AuthenticationActivity : AppCompatActivity() {
         // provider button ID. It's important that that you set the button ID for every provider
         // that you have enabled.
         val customLayout = AuthMethodPickerLayout.Builder(R.layout.auth_custom_screen)
-                .setEmailButtonId(R.id.btn_sign_in_email)
-                .setGoogleButtonId(R.id.btn_sign_in_google)
-                .build()
+            .setEmailButtonId(R.id.btn_sign_in_email)
+            .setGoogleButtonId(R.id.btn_sign_in_google)
+            .build()
 
         // Create and launch sign-in intent. We listen to the response of this activity with the
         // SIGN_IN_RESULT_CODE code.
         startActivityForResult(
-                AuthUI.getInstance().createSignInIntentBuilder()
-                        .setAvailableProviders(
-                                providers)
-                        .setAuthMethodPickerLayout(customLayout)
-                        .build(), SIGN_IN_RESULT_CODE
+            AuthUI.getInstance().createSignInIntentBuilder()
+                .setAvailableProviders(
+                    providers
+                )
+                .setAuthMethodPickerLayout(customLayout)
+                .build(), SIGN_IN_RESULT_CODE
         )
     }
 
@@ -75,8 +76,8 @@ class AuthenticationActivity : AppCompatActivity() {
             if (resultCode == Activity.RESULT_OK) {
                 // User successfully signed in
                 Log.i(
-                        TAG,
-                        "Successfully signed in user ${FirebaseAuth.getInstance().currentUser?.displayName}!"
+                    TAG,
+                    "Successfully signed in user ${FirebaseAuth.getInstance().currentUser?.displayName}!"
                 )
                 Toast.makeText(this, "SignIn Successfull", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, RemindersActivity::class.java)

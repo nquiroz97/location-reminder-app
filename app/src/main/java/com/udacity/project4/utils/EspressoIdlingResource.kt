@@ -4,7 +4,7 @@ import androidx.test.espresso.idling.CountingIdlingResource
 
 object EspressoIdlingResource {
 
-    private const val  RESOURCE = "GLOBAL"
+    private const val RESOURCE = "GLOBAL"
 
     @JvmField
     val countingIdlingResource = CountingIdlingResource(RESOURCE)
@@ -14,7 +14,7 @@ object EspressoIdlingResource {
     }
 
     fun decrement() {
-        if(!countingIdlingResource.isIdleNow){
+        if (!countingIdlingResource.isIdleNow) {
             countingIdlingResource.decrement()
         }
     }

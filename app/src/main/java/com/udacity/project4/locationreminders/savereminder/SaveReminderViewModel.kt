@@ -15,7 +15,7 @@ import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
 import kotlinx.coroutines.launch
 
 class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSource) :
-        BaseViewModel(app) {
+    BaseViewModel(app) {
 
     val locationSelected = MutableLiveData<Boolean>()
 
@@ -54,14 +54,14 @@ class SaveReminderViewModel(val app: Application, val dataSource: ReminderDataSo
         showLoading.value = true
         viewModelScope.launch {
             dataSource.saveReminder(
-                    ReminderDTO(
-                            reminderData.title,
-                            reminderData.description,
-                            reminderData.location,
-                            reminderData.latitude,
-                            reminderData.longitude,
-                            reminderData.id
-                    )
+                ReminderDTO(
+                    reminderData.title,
+                    reminderData.description,
+                    reminderData.location,
+                    reminderData.latitude,
+                    reminderData.longitude,
+                    reminderData.id
+                )
             )
             showLoading.value = false
             showToast.value = app.getString(R.string.reminder_saved)

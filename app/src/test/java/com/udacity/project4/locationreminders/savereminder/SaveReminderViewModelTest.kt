@@ -1,22 +1,24 @@
 package com.udacity.project4.locationreminders.savereminder
 
 import android.os.Build
-import kotlinx.coroutines.ExperimentalCoroutinesApi
-import org.junit.runner.RunWith
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.R
+import com.udacity.project4.locationreminders.MainCoroutineRule
 import com.udacity.project4.locationreminders.data.FakeDataSource
+import com.udacity.project4.locationreminders.getOrAwaitValue
 import com.udacity.project4.locationreminders.reminderslist.ReminderDataItem
-import org.hamcrest.CoreMatchers
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.test.runBlockingTest
+import org.hamcrest.MatcherAssert.assertThat
+import org.hamcrest.Matchers.`is`
 import org.junit.After
-import org.junit.Assert
+import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.koin.core.context.stopKoin
-import com.udacity.project4.locationreminders.getOrAwaitValue
 import org.robolectric.annotation.Config
 
 @ExperimentalCoroutinesApi
@@ -25,18 +27,31 @@ import org.robolectric.annotation.Config
 class SaveReminderViewModelTest {
 
     //DONE: provide testing to the SaveReminderView and its live data objects
+    // Subject under test
+    private lateinit var saveReminderViewModel: SaveReminderViewModel
 
+    // Use a fake repository to be injected into the viewmodel
+    private lateinit var fakeDataSource: FakeDataSource
+
+    // Executes each task synchronously using Architecture Components.
     @get:Rule
     var instantExecutorRule = InstantTaskExecutorRule()
 
+    @ExperimentalCoroutinesApi
     @get:Rule
     var mainCoroutineRule = MainCoroutineRule()
 
-    val list = listOf<ReminderDataItem>(ReminderDataItem("title", "description","location",(-360..360).random().toDouble(),(-360..360).random().toDouble()))
-    private val firstReminder = list[0]
+    @Before
+    fun setupViewModel() = mainCoroutineRule.runBlockingTest {
 
-    private lateinit var fakeDataSource: FakeDataSource
-    private lateinit var saveReminderViewModel: SaveReminderViewModel
+        stopKoin()
+
+        fakeDataSource = FakeDataSource()
+
+        saveReminderViewModel = SaveReminderViewModel(
+            ApplicationProvider.getApplicationContext(),
+            fakeDataSource)
+    }
 
 
     @After
@@ -45,21 +60,55 @@ class SaveReminderViewModelTest {
     }
 
     @Test
-    fun check_loading() {
-        fakeDataSource = FakeDataSource()
-        saveReminderViewModel = SaveReminderViewModel(ApplicationProvider.getApplicationContext(), fakeDataSource)
-        mainCoroutineRule.pauseDispatcher()
-        saveReminderViewModel.validateAndSaveReminder(firstReminder)
-        Assert.assertThat(saveReminderViewModel.showLoading.getOrAwaitValue(), CoreMatchers.`is`(true))
+    fun shouldReturnError() = mainCoroutineRule.runBlockingTest {
+        val reminder =
+            ReminderDataItem(
+                "title",
+                "description",
+                "",
+                0.0,
+                0.0
+            )
+
+        //empty location
+        assertThat(
+            saveReminderViewModel.validateEnteredData(reminder), `is`(false)
+        )
+
+        assertThat(
+            saveReminderViewModel.showSnackBarInt.getOrAwaitValue(), `is`(R.string.err_select_location)
+        )
+
     }
 
     @Test
-    fun returnError() {
-        fakeDataSource = FakeDataSource(null)
-        saveReminderViewModel = SaveReminderViewModel(ApplicationProvider.getApplicationContext(), fakeDataSource)
-        firstReminder.title = null
-        saveReminderViewModel.validateAndSaveReminder(firstReminder)
-        Assert.assertThat(saveReminderViewModel.showSnackBarInt.getOrAwaitValue(), CoreMatchers.`is`(R.string.err_enter_title))
+    fun check_loading() = mainCoroutineRule.runBlockingTest {
+        // Pause dispatcher so we can verify initial values
+        mainCoroutineRule.pauseDispatcher()
+
+        // validate then save reminder in viewmodel
+        saveReminderViewModel.validateAndSaveReminder(
+            ReminderDataItem(
+                "title",
+                "description",
+                "location",
+                0.0,
+                0.0
+            )
+        )
+
+        // progress indicator is shown
+        assertThat(
+            saveReminderViewModel.showLoading.getOrAwaitValue(), `is`(true)
+        )
+
+        // Execute pending coroutines actions
+        mainCoroutineRule.resumeDispatcher()
+
+        // progress indicator is hidden
+        assertThat(
+            saveReminderViewModel.showLoading.getOrAwaitValue(), `is`(false)
+        )
     }
 
 }

@@ -56,12 +56,12 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding =
-                DataBindingUtil.inflate(
-                    inflater,
-                    R.layout.fragment_select_location,
-                    container,
-                    false
-                )
+            DataBindingUtil.inflate(
+                inflater,
+                R.layout.fragment_select_location,
+                container,
+                false
+            )
 
         binding.viewModel = _viewModel
         binding.lifecycleOwner = this
@@ -82,10 +82,10 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         })
 
         /**Tip: LocationRequest avoids returning a null value and causing the fragment activity to crash
-            * when trying to display the map
+         * when trying to display the map
          **Credit to:
          * https://droidbyme.medium.com/get-current-location-using-fusedlocationproviderclient-in-android-cb7ebf5ab88e
-        **/
+         **/
         locationRequest = LocationRequest.create()
         locationRequest.priority = LocationRequest.PRIORITY_HIGH_ACCURACY
         locationRequest.interval = (20 * 1000).toLong()
@@ -123,7 +123,7 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         //        Done: When the user confirms on the selected location,
         //         send back the selected location details to the view model
         //         and navigate back to the previous fragment to save the reminder and add the geofence
-        if (this::selectedPointOfInterest.isInitialized){
+        if (this::selectedPointOfInterest.isInitialized) {
             _viewModel.selectedPOI.value = selectedPointOfInterest
             _viewModel.reminderSelectedLocationStr.value = selectedPointOfInterest.name
             _viewModel.latitude.value = selectedPointOfInterest.latLng.latitude
@@ -131,7 +131,6 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
         }
         findNavController().popBackStack()
     }
-
 
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -168,9 +167,9 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
     }
 
 
-    private fun setMapLongClick(map: GoogleMap){
+    private fun setMapLongClick(map: GoogleMap) {
         map.setOnMapLongClickListener { latLng ->
-            if (this::selectedMarker.isInitialized){
+            if (this::selectedMarker.isInitialized) {
                 selectedMarker.remove()
             }
 
@@ -191,15 +190,15 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
                     .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
             )
             selectedMarker.showInfoWindow()
-            wrapEspressoIdlingResource{
+            wrapEspressoIdlingResource {
                 _viewModel.locationSelected.postValue(true)
             }
         }
     }
 
-    private fun setPoiClick(map: GoogleMap){
+    private fun setPoiClick(map: GoogleMap) {
         map.setOnPoiClickListener { poi ->
-            if (this::selectedMarker.isInitialized){
+            if (this::selectedMarker.isInitialized) {
                 selectedMarker.remove()
             }
 
@@ -212,18 +211,18 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
             selectedPointOfInterest = poi
 
             selectedMarker.showInfoWindow()
-            wrapEspressoIdlingResource{
+            wrapEspressoIdlingResource {
                 _viewModel.locationSelected.postValue(true)
             }
         }
     }
 
-    private fun setMapStyle(map: GoogleMap){
+    private fun setMapStyle(map: GoogleMap) {
         try {
             val success = map.setMapStyle(
                 MapStyleOptions.loadRawResourceStyle(context, R.raw.map_style)
             )
-            if(!success) {
+            if (!success) {
                 Log.e(TAG, "Style parsing failed.")
             }
 
@@ -243,8 +242,8 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
 
     @SuppressLint("MissingPermission")
-    private fun setMyLocation(){
-        if(requireActivity().hasAllLocationPermissions()){
+    private fun setMyLocation() {
+        if (requireActivity().hasAllLocationPermissions()) {
             map.isMyLocationEnabled = true
             fusedLocationClient.lastLocation.addOnSuccessListener {
                 val snippet = String.format(
@@ -269,7 +268,8 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
 
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, zoomLevel))
 
-                selectedMarker.showInfoWindow() }
+                selectedMarker.showInfoWindow()
+            }
         } else {
             requireActivity().showPermissionSnackBar(binding.root)
             findNavController().popBackStack()

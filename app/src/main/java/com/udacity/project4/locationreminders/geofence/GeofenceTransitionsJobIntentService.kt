@@ -30,9 +30,9 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
         //        DONE: call this to start the JobIntentService to handle the geofencing transition events
         fun enqueueWork(context: Context, intent: Intent) {
             enqueueWork(
-                    context,
-                    GeofenceTransitionsJobIntentService::class.java, JOB_ID,
-                    intent
+                context,
+                GeofenceTransitionsJobIntentService::class.java, JOB_ID,
+                intent
             )
         }
 
@@ -45,18 +45,16 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
 
         val geofencingEvent = GeofencingEvent.fromIntent(intent)
         val geofenceList: List<Geofence> =
-                geofencingEvent.triggeringGeofences
+            geofencingEvent.triggeringGeofences
         sendNotification(geofenceList)
     }
-
 
 
     //DONE: get the request id of the current geofence
     private fun sendNotification(Geofences: List<Geofence>) {
 
         val requestId = when {
-            Geofences.isNotEmpty() ->
-            {
+            Geofences.isNotEmpty() -> {
                 Log.d(TAG, "sendNotification: " + Geofences[0].requestId)
                 Geofences[0].requestId
             }
@@ -67,7 +65,7 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
             }
         }
 
-        if(TextUtils.isEmpty(requestId)) return
+        if (TextUtils.isEmpty(requestId)) return
 
         //Get the local repository instance
         //Reference: https://knowledge.udacity.com/questions/526144
@@ -80,14 +78,14 @@ class GeofenceTransitionsJobIntentService : JobIntentService(), CoroutineScope {
                 val reminderDTO = result.data
                 //send a notification to the user with the reminder details
                 sendNotification(
-                        this@GeofenceTransitionsJobIntentService, ReminderDataItem(
+                    this@GeofenceTransitionsJobIntentService, ReminderDataItem(
                         reminderDTO.title,
                         reminderDTO.description,
                         reminderDTO.location,
                         reminderDTO.latitude,
                         reminderDTO.longitude,
                         reminderDTO.id
-                )
+                    )
                 )
             }
         }

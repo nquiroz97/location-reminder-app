@@ -40,11 +40,11 @@ class SaveReminderFragment : BaseFragment() {
     }
 
     override fun onCreateView(
-            inflater: LayoutInflater, container: ViewGroup?,
-            savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
     ): View? {
         binding =
-                DataBindingUtil.inflate(inflater, R.layout.fragment_save_reminder, container, false)
+            DataBindingUtil.inflate(inflater, R.layout.fragment_save_reminder, container, false)
 
         setDisplayHomeAsUpEnabled(true)
 
@@ -52,8 +52,8 @@ class SaveReminderFragment : BaseFragment() {
 
         _viewModel.showSnackBarInt.observe(viewLifecycleOwner, Observer {
             Snackbar.make(
-                    binding.root,
-                    it, Snackbar.LENGTH_LONG
+                binding.root,
+                it, Snackbar.LENGTH_LONG
             ).setAction(android.R.string.ok) {
                 //Do nothing?
             }.show()
@@ -69,7 +69,7 @@ class SaveReminderFragment : BaseFragment() {
         binding.selectLocation.setOnClickListener {
             //            Navigate to another fragment to get the user location
             _viewModel.navigationCommand.value =
-                    NavigationCommand.To(SaveReminderFragmentDirections.actionSaveReminderFragmentToSelectLocationFragment())
+                NavigationCommand.To(SaveReminderFragmentDirections.actionSaveReminderFragmentToSelectLocationFragment())
         }
 
         geofencingClient = LocationServices.getGeofencingClient(requireActivity())
@@ -86,23 +86,33 @@ class SaveReminderFragment : BaseFragment() {
             //Done: use the user entered reminder details to:
             //1) add a geofencing request
 
-            val canSave = _viewModel.validateEnteredData(ReminderDataItem(title, description, location, latitude, longitude, id))
+            val canSave = _viewModel.validateEnteredData(
+                ReminderDataItem(
+                    title,
+                    description,
+                    location,
+                    latitude,
+                    longitude,
+                    id
+                )
+            )
             if (canSave) {
 
                 val geofence = Geofence.Builder()
-                        .setRequestId(id)
-                        .setCircularRegion(latitude,
-                                longitude,
-                                100f
-                        )
-                        .setExpirationDuration(Geofence.NEVER_EXPIRE)
-                        .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
-                        .build()
+                    .setRequestId(id)
+                    .setCircularRegion(
+                        latitude,
+                        longitude,
+                        100f
+                    )
+                    .setExpirationDuration(Geofence.NEVER_EXPIRE)
+                    .setTransitionTypes(Geofence.GEOFENCE_TRANSITION_ENTER)
+                    .build()
 
                 val geofencingRequest = GeofencingRequest.Builder()
-                        .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
-                        .addGeofence(geofence)
-                        .build()
+                    .setInitialTrigger(GeofencingRequest.INITIAL_TRIGGER_ENTER)
+                    .addGeofence(geofence)
+                    .build()
 
                 //Done 2) save the reminder to the local db
                 if (requireActivity().hasAllLocationPermissions()) {
@@ -111,7 +121,16 @@ class SaveReminderFragment : BaseFragment() {
                             Log.v("Geofence", "Failed adding..." + it.message)
                         }
                         addOnSuccessListener {
-                            _viewModel.validateAndSaveReminder(ReminderDataItem(title, description, location, latitude, longitude, geofence.requestId))
+                            _viewModel.validateAndSaveReminder(
+                                ReminderDataItem(
+                                    title,
+                                    description,
+                                    location,
+                                    latitude,
+                                    longitude,
+                                    geofence.requestId
+                                )
+                            )
                             Log.v("Geofence", "Added successfully...")
                         }
                     }
