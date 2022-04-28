@@ -79,7 +79,7 @@ class AuthenticationActivity : AppCompatActivity() {
                     TAG,
                     "Successfully signed in user ${FirebaseAuth.getInstance().currentUser?.displayName}!"
                 )
-                Toast.makeText(this, "SignIn Successfull", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Sign In Successfull", Toast.LENGTH_LONG).show()
                 val intent = Intent(this, RemindersActivity::class.java)
                 startActivity(intent)
                 finish()
@@ -88,7 +88,7 @@ class AuthenticationActivity : AppCompatActivity() {
                 // sign-in flow using the back button. Otherwise check
                 // response.getError().getErrorCode() and handle the error.
                 Log.i(TAG, "Sign in unsuccessful ${response?.error?.errorCode}")
-                Toast.makeText(this, "SignIn failed", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, "Sign In failed", Toast.LENGTH_LONG).show()
             }
         }
     }

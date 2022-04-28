@@ -264,7 +264,7 @@ class SelectLocationFragment : BaseFragment(), OnMapReadyCallback {
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 )
 
-                val zoomLevel = 18f
+                val zoomLevel = 8f
 
                 map.moveCamera(CameraUpdateFactory.newLatLngZoom(myLatLng, zoomLevel))
 
